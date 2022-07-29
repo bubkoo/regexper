@@ -30,5 +30,18 @@
   "devDependencies": {
     "canopy": "^0.4.0",
     "terser": "^5.14.2"
+  },
+  "homepage": "https://github.com/bubkoo/regexper",
+  "bugs": {
+    "url": "https://github.com/bubkoo/regexper/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/bubkoo/regexper.git",
+    "directory": "packages/parser"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   }
 }

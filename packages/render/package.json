@@ -51,5 +51,18 @@
   "dependencies": {
     "@regexper/parser": "1.0.0",
     "@svgdotjs/svg.js": "^3.1.2"
+  },
+  "homepage": "https://github.com/bubkoo/regexper",
+  "bugs": {
+    "url": "https://github.com/bubkoo/regexper/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/bubkoo/regexper.git",
+    "directory": "packages/render"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   }
 }
