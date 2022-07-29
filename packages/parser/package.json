@@ -1,0 +1,28 @@
+{
+  "name": "@regexper/parser",
+  "version": "1.0.0",
+  "description": "Parse regular expression to ast tree",
+  "main": "regexp.js",
+  "module": "regexp.js",
+  "unpkg": "regexp.min.js",
+  "jsdelivr": "regexp.min.js",
+  "files": [
+    "regexp.js",
+    "regexp.min.js"
+  ],
+  "scripts": {
+    "clean": "rimraf *.js",
+    "build:dev": "canopy ./regexp.peg --lang js",
+    "build:umd": "terser -c -o regexp.min.js -- regexp.js",
+    "build": "run-s build:dev build:umd",
+    "prebuild": "run-s clean",
+    "prepare": "run-p build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "canopy": "^0.4.0",
+    "terser": "^5.14.2"
+  }
+}
