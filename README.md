@@ -1,3 +1,3 @@
 # regexper
 
-Regular expression visualizer using railroad diagrams
+Regular expression visualizer using railroad diagram

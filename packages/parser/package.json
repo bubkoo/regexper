@@ -18,7 +18,13 @@
     "prebuild": "run-s clean",
     "prepare": "run-p build"
   },
-  "keywords": [],
+  "keywords": [
+    "regexp",
+    "regexper",
+    "parse",
+    "parser",
+    "ast"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {

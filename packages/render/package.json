@@ -1,7 +1,7 @@
 {
   "name": "@regexper/render",
   "version": "1.0.0",
-  "description": "Visualize regular expression with railroad diagrams",
+  "description": "Visualize regular expression with railroad diagram",
   "main": "lib/index.js",
   "module": "es/index.js",
   "unpkg": "dist/index.js",
@@ -33,7 +33,16 @@
     "pretest": "run-p clean:coverage",
     "prepare": "run-p test build"
   },
-  "keywords": [],
+  "keywords": [
+    "regular expression",
+    "regexp",
+    "regexper",
+    "visualize",
+    "visualization",
+    "railroad diagram",
+    "railroad-diagrams",
+    "regexp-validator"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {

@@ -1,6 +1,6 @@
 {
   "name": "regexper",
-  "description": "Regular expression visualizer using railroad diagrams",
+  "description": "Regular expression visualizer using railroad diagram",
   "private": true,
   "keywords": [
     "regexp",
