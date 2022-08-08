@@ -2,6 +2,14 @@
   "name": "regexper",
   "description": "Regular expression visualizer using railroad diagram",
   "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/app/**"
+    ]
+  },
   "keywords": [
     "regexp",
     "regexp-validator",
@@ -11,7 +19,9 @@
   "scripts": {
     "lint": "eslint --ext .ts ./src/**/*.ts",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
-    "build": "pnpm -r --filter=./packages/* run build",
+    "build:parser": "yarn workspace @regexper/parser build",
+    "build:render": "yarn workspace @regexper/render build",
+    "build": "run-s build:parser build:render",
     "precommit": "lint-staged",
     "prepare": "is-ci || husky install"
   },
@@ -53,7 +63,7 @@
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
     "@semantic-release-monorepo/cli": "^1.0.17",
-    "eslint": "^8.20.0",
+    "eslint": "^8.21.0",
     "husky": "^8.0.1",
     "is-ci": "^3.0.1",
     "lint-staged": "^13.0.3",
@@ -78,7 +88,6 @@
     "url": "https://github.com/bubkoo/regexper/issues"
   },
   "homepage": "https://github.com/bubkoo/regexper#readme",
-  "packageManager": "pnpm@7.1.9",
   "engines": {
     "node": ">=14.6.0"
   }
