@@ -33,7 +33,7 @@ jobs:
       - name: 🚧　Prepare
         run: yarn global add lerna
       - name: 🚀　Bootstrap
-        run: yarn bootstrap
+        run: yarn
       - name: 🔑　Generate Token
         uses: wow-actions/use-app-token@v1
         with:
