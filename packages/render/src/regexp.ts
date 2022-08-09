@@ -25,27 +25,28 @@ export class RegexpNode extends Node {
       .group()
       .addClass(`${this.type}-matches`)
       .translate(20, 0)
-    const matches = this.matches
 
     // Renders each match into the match container.
     await Promise.all(
-      matches.map((match) => match.render(matchContainer.group())),
+      this.matches.map((match) => match.render(matchContainer.group())),
     )
 
     // Space matches vertically in the match container.
-    spaceVertical(matches, 5)
+    spaceVertical(this.matches, 5)
 
     let containerBox = this.bbox()
 
     // Creates the curves from the side lines for each match.
     const paths: string[] = []
-    matches.forEach((match) =>
+    this.matches.forEach((match) =>
       paths.push(...this.makeCurve(containerBox, match)),
     )
 
+    const first = this.matches[0]
+    const last = this.matches[this.matches.length - 1]
     // Add side lines to the list of paths.
-    paths.push(...this.makeSide(containerBox, matches[0])!)
-    paths.push(...this.makeSide(containerBox, matches[matches.length - 1])!)
+    paths.push(...this.makeSide(containerBox, first))
+    paths.push(...this.makeSide(containerBox, last))
 
     // Render connector paths.
     this.container.path(paths.join('')).back()
@@ -54,10 +55,10 @@ export class RegexpNode extends Node {
 
     // Create connections from side lines to each match and render into
     // the match container.
-    const connectorPaths = matches.map((match) =>
+    const connectors = this.matches.map((match) =>
       this.makeConnector(containerBox, match),
     )
-    matchContainer.path(connectorPaths.join('')).back()
+    matchContainer.path(connectors.join('')).back()
   }
 
   /**
@@ -84,6 +85,8 @@ export class RegexpNode extends Node {
         }q-10,0 -10,${shift}V${edge}`,
       ]
     }
+
+    return []
   }
 
   /**

@@ -18,6 +18,8 @@ export async function render(
   const root = new RootNode(tree, state)
   const svg = SVG(container)
 
+  svg.node.removeAttribute('xmlns:svgjs')
+
   svg
     .defs()
     .style()
