@@ -29,7 +29,7 @@ export class MatchNode extends Node {
       const frag = new MatchFragment(node, this)
       if (last && last.canMerge && frag.canMerge) {
         // Merged the content of `node` into `last` when possible.
-        ;(last.content as LiteralNode).merge(frag.content as LiteralNode)
+        ; (last.content as LiteralNode).merge(frag.content as LiteralNode)
       } else {
         // `node` cannot be merged with the previous node, so it is added to
         // the list of parts.

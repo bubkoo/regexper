@@ -70,10 +70,10 @@ export class CharsetNode extends Node {
       type === 'charset-range'
         ? CharsetRangeNode
         : type === 'charset-escape'
-        ? CharsetEscapeNode
-        : type === 'literal'
-        ? LiteralNode
-        : null
+          ? CharsetEscapeNode
+          : type === 'literal'
+            ? LiteralNode
+            : null
     if (Ctor) {
       return new Ctor(metadata, this)
     }

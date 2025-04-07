@@ -56,16 +56,16 @@ export class MatchFragment extends Node {
       type === 'anchor'
         ? AnchorNode
         : type === 'subexp'
-        ? SubexpNode
-        : type === 'charset'
-        ? CharsetNode
-        : type === 'any-character'
-        ? AnyCharacterNode
-        : type === 'escape'
-        ? EscapeNode
-        : type === 'literal'
-        ? LiteralNode
-        : null
+          ? SubexpNode
+          : type === 'charset'
+            ? CharsetNode
+            : type === 'any-character'
+              ? AnyCharacterNode
+              : type === 'escape'
+                ? EscapeNode
+                : type === 'literal'
+                  ? LiteralNode
+                  : null
     if (Ctor) {
       return new Ctor(metadata, this)
     }

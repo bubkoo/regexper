@@ -101,15 +101,14 @@ export class RepeatNode extends Node {
   // Returns the path spec to render the line that skips over the content for
   // fragments that are optionally matched.
   skipPath(box: BBox) {
-    const paths = []
+    const paths: string[] = []
 
     if (this.hasSkip) {
       const vert = Math.max(0, box.ay - box.y - 10)
       const horiz = box.width - 10
 
       paths.push(
-        `M0,${
-          box.ay
+        `M0,${box.ay
         }q10,0 10,-10v${-vert}q0,-10 10,-10h${horiz}q10,0 10,10v${vert}q0,10 10,10`,
       )
 
@@ -125,14 +124,13 @@ export class RepeatNode extends Node {
   // Returns the path spec to render the line that repeats the content for
   // fragments that are matched more than once.
   loopPath(box: BBox) {
-    const paths = []
+    const paths: string[] = []
 
     if (this.hasLoop) {
       const vert = box.y2 - box.ay - 10
 
       paths.push(
-        `M${box.x},${box.ay}q-10,0 -10,10v${vert}q0,10 10,10h${
-          box.width
+        `M${box.x},${box.ay}q-10,0 -10,10v${vert}q0,10 10,10h${box.width
         }q10,0 10,-10v${-vert}q0,-10 -10,-10`,
       )
 
