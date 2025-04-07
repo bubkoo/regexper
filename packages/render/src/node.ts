@@ -22,10 +22,14 @@ export abstract class Node implements Metadata {
     return this.metadata.elements
   }
 
+  public readonly metadata: Metadata
   public readonly proxy?: Node | null
   public container: G | Svg
 
-  constructor(public readonly metadata: Metadata, parent: Node | State) {
+  constructor(metadata: Metadata, parent: Node)
+  constructor(metadata: Metadata, state: State)
+  constructor(metadata: Metadata, parent: Node | State) {
+    this.metadata = metadata
     this.state = parent instanceof Node ? parent.state : parent
   }
 
