@@ -1,5 +1,5 @@
-import { EscapeNode } from './escape.js'
-import { CODE_MAPPING } from './escape-util.js'
+import { EscapeNode } from './escape'
+import { CODE_MAPPING } from './escape-util'
 
 /**
  * CharsetEscape nodes are for escape sequences inside of character sets. They

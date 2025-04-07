@@ -4,7 +4,7 @@ import { style } from './style'
 import { Metadata } from './types'
 import { RootNode } from './root'
 import { Options, State } from './state'
-import { getExtensions } from './extensions.js'
+import { getExtensions } from './extensions'
 
 export async function render(
   regex: string | RegExp,
@@ -15,11 +15,12 @@ export async function render(
   const extensions = getExtensions()
   const regexString = typeof regex === 'string' ? regex : regex.toString()
   const tree = parser.parse(regexString, { types: extensions }) as Metadata
+  // console.log(tree)
   const root = new RootNode(tree, state)
   const svg = SVG(container)
 
   svg.node.removeAttribute('xmlns:svgjs')
-
+  console.log(svg)
   svg
     .defs()
     .style()
