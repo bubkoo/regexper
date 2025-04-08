@@ -6,7 +6,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "build": "webpack"
+    "clean": "rimraf dist",
+    "build:dev": "webpack --mode development",
+    "build": "webpack --mode production"
   },
   "keywords": [],
   "license": "MIT",
