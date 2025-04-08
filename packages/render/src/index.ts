@@ -1,5 +1,5 @@
 import parser from '@regexper/parser'
-import { SVG } from '@svgdotjs/svg.js'
+import { SVG, getWindow } from '@svgdotjs/svg.js'
 import { style } from './style'
 import { Metadata } from './types'
 import { RootNode } from './root'
@@ -11,6 +11,7 @@ export async function render(
   container: SVGSVGElement | SVGGElement,
   options: Options = {},
 ) {
+  const win = getWindow()
   const state = new State(options)
   const extensions = getExtensions()
   const regexString = typeof regex === 'string' ? regex : regex.toString()
@@ -24,11 +25,21 @@ export async function render(
   svg
     .defs()
     .style()
-    .add(document.createTextNode(style) as any)
+    .add(win.document.createTextNode(style) as any)
 
   await root.render(svg.group())
   const bbox = root.bbox()
   root.translate(10 - bbox.x, 10 - bbox.y)
   svg.size(bbox.width + 20, bbox.height + 20)
   return root
+}
+
+export async function generateSVG(
+  regex: string | RegExp,
+  options: Options = {},
+): Promise<SVGSVGElement> {
+  const win = getWindow()
+  const svg = win.document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+  await render(regex, svg, options)
+  return svg
 }
