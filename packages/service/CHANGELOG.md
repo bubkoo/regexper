@@ -1,3 +1,10 @@
+## @regexper/service [1.0.2](https://github.com/bubkoo/regexper/compare/@regexper/service@1.0.1...@regexper/service@1.0.2) (2025-04-08)
+
+
+### Bug Fixes
+
+* read code from bundle ([8284239](https://github.com/bubkoo/regexper/commit/8284239157fdb0187dd99d5494c7ab2df8df60af))
+
 ## @regexper/service [1.0.1](https://github.com/bubkoo/regexper/compare/@regexper/service@1.0.0...@regexper/service@1.0.1) (2025-04-08)
 
 
