@@ -1,3 +1,4 @@
+const path = require('path')
 const express = require('express')
 const chromium = require('@sparticuz/chromium')
 const puppeteer = require('puppeteer-core')
@@ -11,7 +12,7 @@ async function render(regexp) {
   });
 
   const page = await browser.newPage()
-  await page.addScriptTag({ path: './dist/bundle.js' })
+  await page.addScriptTag({ path: path.resolve('./dist/bundle.js') })
   const svg = await page.evaluate((regexp) => window.generateSVG(regexp), regexp)
   await browser.close();
   return svg
