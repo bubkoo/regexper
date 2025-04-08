@@ -3,6 +3,10 @@ import { Node } from './node'
 import { BBox, Metadata } from './types'
 import { normalizeBBox, spaceVertical } from './util'
 
+/**
+ * Regexp nodes are the entire regular expression.
+ * They consist of a collection of match nodes separated by `|`.
+ */
 export class RegexpNode extends Node {
   public readonly matches: MatchNode[]
   public readonly proxy?: MatchNode | null
@@ -80,9 +84,7 @@ export class RegexpNode extends Node {
 
       return [
         `M0,${containerBox.cy}q10,0 10,${shift}V${edge}`,
-        `M${containerBox.width + 40},${
-          containerBox.cy
-        }q-10,0 -10,${shift}V${edge}`,
+        `M${containerBox.width + 40},${containerBox.cy}q-10,0 -10,${shift}V${edge}`,
       ]
     }
 
@@ -115,9 +117,7 @@ export class RegexpNode extends Node {
 
     return [
       `M0,${containerBox.cy}c10,0 10,${anchor} 20,${anchor}`,
-      `M${containerBox.width + 40},${
-        containerBox.cy
-      }c-10,0 -10,${anchor} -20,${anchor}`,
+      `M${containerBox.width + 40},${containerBox.cy}c-10,0 -10,${anchor} -20,${anchor}`,
     ]
   }
 

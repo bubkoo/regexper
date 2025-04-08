@@ -12,6 +12,10 @@ const FLAG_LABELS = {
   u: 'Unicode',
 }
 
+/**
+ * Root nodes contain the top-level regexp node.
+ * Any flags and a few decorative elements are rendered by the root node.
+ */
 export class RootNode extends Node {
   public readonly regexp: RegexpNode
 
@@ -47,18 +51,16 @@ export class RootNode extends Node {
 
     // Move rendered regexp to account for flag label and to allow for
     // decorative elements.
-    if (flagText) {
-      this.regexp.translate(10, flagText.bbox().height)
-    } else {
-      this.regexp.translate(10, 0)
-    }
+    const tx = 10
+    const ty = flagText ? flagText.bbox().height : 0
+    this.regexp.translate(tx, ty)
 
     const box = this.regexp.bbox()
     const margin = 10
 
     // Render decorative elements.
     this.container.path(
-      `M${box.ax},${box.ay}H0M${box.ax2},${box.ay}H${box.x2 + 10}`,
+      `M${box.ax},${box.ay}H0M${box.ax2},${box.ay}H${box.x2 + margin}`,
     )
     this.container.circle(10).center(0, box.ay)
     this.container.circle(10).center(box.x2 + margin, box.ay)
