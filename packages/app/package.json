@@ -3,6 +3,7 @@
   "productName": "app",
   "version": "1.0.0",
   "description": "My Electron application description",
+  "private": true,
   "main": "./.webpack/main/index.js",
   "scripts": {
     "start": "electron-forge start",

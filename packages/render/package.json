@@ -4,8 +4,6 @@
   "description": "Visualize regular expression with railroad diagram",
   "main": "lib/index.js",
   "module": "es/index.js",
-  "unpkg": "dist/index.js",
-  "jsdelivr": "dist/index.js",
   "types": "lib/index.d.ts",
   "files": [
     "dist",
@@ -14,24 +12,22 @@
     "src"
   ],
   "scripts": {
-    "clean:build": "rimraf dist es lib",
+    "clean:build": "rimraf es lib",
     "clean:coverage": "rimraf ./test/coverage",
     "clean": "run-p clean:build clean:coverage",
     "build:esm": "tsc --module esnext --target es2017 --outDir ./es",
     "build:cjs": "tsc --module commonjs --target es5 --outDir ./lib",
-    "build:umd": "rollup -c",
-    "build:umd:vis": "rollup -c --visualize",
     "build:dev": "run-p build:cjs build:esm",
     "build:watch": "run-s 'build:esm --w'",
     "build:watch:esm": "run-s 'build:esm --w'",
     "build:watch:cjs": "run-s 'build:cjs --w'",
     "build:style": "node scripts/build-style.js",
-    "build": "run-s build:style build:dev build:umd",
+    "build": "run-s build:style build:dev",
     "prebuild": "run-s clean",
     "test": "echo .",
     "coveralls": "cat ./test/coverage/lcov.info | coveralls",
     "pretest": "run-p clean:coverage",
-    "prepare": "run-p test build"
+    "prepare": "run-p build test"
   },
   "keywords": [
     "regular expression",
@@ -43,13 +39,15 @@
     "railroad-diagrams",
     "regexp-validator"
   ],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "canopy": "^0.4.0"
+  "license": "MIT",
+  "author": {
+    "name": "bubkoo",
+    "email": "bubkoo.wy@gmail.com"
   },
   "dependencies": {
-    "@regexper/parser": "1.0.0",
+    "@regexper/parser": "1.0.0"
+  },
+  "peerDependencies": {
     "@svgdotjs/svg.js": "^3.1.2"
   },
   "homepage": "https://github.com/bubkoo/regexper",

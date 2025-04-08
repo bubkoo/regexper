@@ -25,8 +25,11 @@
     "parser",
     "ast"
   ],
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
+  "author": {
+    "name": "bubkoo",
+    "email": "bubkoo.wy@gmail.com"
+  },
   "devDependencies": {
     "canopy": "^0.4.0",
     "terser": "^5.14.2"
